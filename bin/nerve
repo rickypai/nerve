@@ -3,6 +3,11 @@
 require 'yaml'
 require 'optparse'
 
+# Adds the gem lib to the load path. Since we define it relative to the location
+# of the executable, which is known, we can ensure file loading will work
+# regardless of where it's being called.
+$LOAD_PATH.unshift(File.expand_path('../../lib', File.realpath(__FILE__)))
+
 require 'nerve'
 require 'nerve/configuration_manager'
 
